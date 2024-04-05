@@ -40,6 +40,12 @@ const SignupForm = () => {
   // Handler
   const handleSignup = async (user: z.infer<typeof SignupValidation>) => {
     try {
+
+      if(!hasUAlbertaCA(user.email)){
+        toast({ title: "For creating an account, please use a @ualberta.ca email address", });
+        return;
+
+      }
       const newUser = await createUserAccount(user);
 
      
@@ -50,11 +56,7 @@ const SignupForm = () => {
         return;
       }
 
-      if(!hasUAlbertaCA(user.email)){
-        toast({ title: "For creating an account, please use a @ualberta.ca email address", });
-        return;
-
-      }
+     
 
       const session = await signInAccount({
         email: user.email,
