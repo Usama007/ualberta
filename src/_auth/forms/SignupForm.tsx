@@ -32,7 +32,7 @@ const SignupForm = () => {
   const { mutateAsync: createUserAccount, isLoading: isCreatingAccount } = useCreateUserAccount();
   const { mutateAsync: signInAccount, isLoading: isSigningInUser } = useSignInAccount();
 
-  function hasUAlbertaCA(email) {
+  function hasUAlbertaCA(email:any) {
     const regex = /@ualberta\.ca$/; // Regular expression to match "@ualberta.ca" at the end of the string
     return regex.test(email);
   }
