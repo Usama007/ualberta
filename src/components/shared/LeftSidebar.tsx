@@ -70,12 +70,12 @@ const LeftSidebar = () => {
                 <NavLink
                   to={link.route}
                   // to={'/'}
-                  onClick={()=>{
-                    console.log(link?.route)
-                    if(link?.route === '/'){
-                      useGetRecentPosts(currentUser)
-                    }
-                  }}
+                  // onClick={()=>{
+                  //   console.log(link?.route)
+                  //   if(link?.route === '/'){
+                  //     useGetRecentPosts(currentUser)
+                  //   }
+                  // }}
 
                   className="flex gap-4 text-dark-4 font-bold items-center p-4">
                   <img
