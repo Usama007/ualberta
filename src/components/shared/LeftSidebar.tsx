@@ -4,14 +4,13 @@ import { INavLink } from "@/types";
 import { sidebarLinks } from "@/constants";
 import { Loader } from "@/components/shared";
 import { Button } from "@/components/ui/button";
-import { useGetCurrentUser, useGetRecentPosts, useSignOutAccount } from "@/lib/react-query/queries";
+import {  useSignOutAccount } from "@/lib/react-query/queries";
 import { useUserContext, INITIAL_USER } from "@/context/AuthContext";
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { user, setUser, setIsAuthenticated, isLoading } = useUserContext();
-  const { data: currentUser } = useGetCurrentUser();
 
 
   const { mutate: signOut } = useSignOutAccount();
