@@ -29,7 +29,7 @@ const PostDetails = () => {
       toast({
         title: `Post deleted successfully.`,
       });
-      navigate(-1);
+      navigate('/');
     }
     // navigate(-1);
   };
@@ -97,23 +97,24 @@ const PostDetails = () => {
                     height={24}
                   />
                 </Link>
-                {isDeleteLoading ? (
-                  <Loader />
-                ) : (
-                  <Button
-                    onClick={handleDeletePost}
-                    variant="ghost"
-                    className={`ost_details-delete_btn ${
-                      user.id !== post?.creator.$id && "hidden"
-                    }`}>
+                <Button
+                  onClick={handleDeletePost}
+                  disabled={isDeleteLoading}
+                  variant="ghost"
+                  className={`ost_details-delete_btn ${
+                    user.id !== post?.creator.$id && "hidden"
+                  }`}>
+                  {isDeleteLoading ? (
+                    <Loader />
+                  ) : (
                     <img
                       src={"/assets/icons/delete.svg"}
                       alt="delete"
                       width={24}
                       height={24}
                     />
-                  </Button>
-                )}
+                  )}
+                </Button>
               </div>
             </div>
             <hr className="border w-full border-dark-4/80" />
