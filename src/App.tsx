@@ -24,6 +24,7 @@ import SignupForm from "@/_auth/forms/SignupForm";
 import SigninForm from "@/_auth/forms/SigninForm";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+import "react-loading-skeleton/dist/skeleton.css";
 import { useGetCurrentUser } from "./lib/react-query/queries";
 import { useEffect } from "react";
 import { setRecentPostLoaded } from "./lib/utils";
@@ -43,11 +44,11 @@ const App = () => {
         </Route>
         {/* private routes */}
         <Route element={<RootLayout />}>
-        {/* <Route index element={<UpdateProfile />} /> */}
-        {currentUser?.$id &&  <Route index element={<Home />} />}
+          {/* <Route index element={<UpdateProfile />} /> */}
+          {currentUser?.$id && <Route index element={<Home />} />}
           <Route path="/explore" element={<Explore />} />
           <Route path="/saved" element={<Saved />} />
-          <Route path="/all-users" element={<AllUsers/>} />
+          <Route path="/all-users" element={<AllUsers />} />
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/update-post/:id" element={<EditPost />} />
           <Route path="/posts/:id" element={<PostDetails />} />
